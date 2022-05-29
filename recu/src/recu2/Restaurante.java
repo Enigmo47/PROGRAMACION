@@ -99,7 +99,7 @@ public class Restaurante {
 
 				Iterator<Ingrediente> iter = x.ing.iterator();
 				while (iter.hasNext()) {
-					if (nombreP.equals(iter.next().nombre)) {
+					if (nombre.equals(iter.next().nombre)) {
 						iter.remove();
 						return true;
 
@@ -131,15 +131,16 @@ public class Restaurante {
 	}
 
 	public String buscaContrario(String nombre) {
-
+		boolean tiene=false;
 		String salida = "";
 		for (Plato x : platos) {
-
-			if (x.ing.contains(new Ingrediente(nombre, 0))) {
-
-				salida += x + "\r";
+			tiene=false;
+			for(Ingrediente y : x.ing) {
+				
+				if(nombre.equals(y.nombre))tiene=true;
+				
 			}
-
+			if(!tiene)salida += x + "\r";
 		}
 		return ((salida.equals("")) ? "No hay platos con este ingrediente" : "Platos con ese ingrediente: \r" + salida);
 

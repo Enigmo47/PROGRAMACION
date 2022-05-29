@@ -38,7 +38,7 @@ public class Plato implements Comparable<Plato> {
 
 	public String toString() {
 
-		String salida = nombreP + ";" + precio + "; ";
+		String salida = nombreP + ";" + precio + ";";
 		for (Ingrediente x : ing) {
 			salida += x + ";";
 		}
@@ -51,16 +51,16 @@ public class Plato implements Comparable<Plato> {
 	private void fromString(String entrada) {
 
 		nombreP = entrada.substring(0, entrada.indexOf(";"));
-		entrada = entrada.substring(entrada.indexOf(";") + 1, entrada.length() - 1);
+		entrada = entrada.substring(entrada.indexOf(";") + 1, entrada.length());
 		precio = Double.parseDouble(entrada.substring(0 ,entrada.indexOf(";")));
-		entrada = entrada.substring(entrada.indexOf(";") + 1, entrada.length() - 1);
-		if (entrada.lastIndexOf(";") == entrada.length() - 1) {
+		entrada = entrada.substring(entrada.indexOf(";") + 1, entrada.length() );
+	//	if (entrada.lastIndexOf(";") == entrada.length() - 1) {
 			while (entrada.indexOf(";") <= entrada.lastIndexOf(";") && entrada.indexOf(";") >= 0) {
 				ing.add(new Ingrediente(entrada.substring(0, entrada.indexOf(";")+1)));
-				entrada = entrada.substring(entrada.indexOf("; ") + 1, entrada.length() - 1);
+				entrada = entrada.substring(entrada.indexOf(";") + 1, entrada.length() );
 			}
 
-		}
+	//	}
 
 	}
 

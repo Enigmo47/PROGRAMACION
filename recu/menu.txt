@@ -1,1 +1,1 @@
-tortilla;5.0; patata_5;helado;2.0; sin ingredientes
+gazpacho;3.0;tomate_1;aceite_2;tarta de queso;14.99;queso_3;

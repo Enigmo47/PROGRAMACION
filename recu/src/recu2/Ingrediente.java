@@ -18,8 +18,9 @@ public class Ingrediente {
 	}
 
 	private void fromString(String entrada) {
-		nombre = entrada.substring(1, entrada.indexOf("_"));
-		cantidad = Integer.getInteger(entrada.substring(entrada.indexOf("_") + 1, entrada.length() - 1));
+		nombre = entrada.substring(0, entrada.indexOf("_"));
+		entrada = entrada.substring(entrada.indexOf("_")+1, entrada.length()-1 );
+		cantidad =Integer.parseInt(entrada);
 	}
 
 	public static boolean valida(int cantidad) {
@@ -29,7 +30,4 @@ public class Ingrediente {
 		return true;
 	}
 
-	public boolean equals(Ingrediente o) {
-		return nombre.equals(o.nombre);
-	}
 }
